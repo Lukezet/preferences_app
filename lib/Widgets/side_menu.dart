@@ -14,14 +14,14 @@ class SideMenu extends StatelessWidget {
           const _DrawHeader(),
 
           ListTile(
-            leading: const Icon(Icons.pages_outlined),
+            leading: const Icon(Icons.home),
             title: const Text('Home'),
             onTap:() {
               Navigator.pushReplacementNamed(context, HomeScreen.routerName);
             },
           ),
                     ListTile(
-            leading: const Icon(Icons.people_alt_outlined),
+            leading: const Icon(Icons.people_alt),
             title: const Text('People'),
             onTap:() {},
           ),

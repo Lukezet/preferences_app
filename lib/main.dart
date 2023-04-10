@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:preferences_app/share_preferences/preferences.dart';
 
 import 'Screens/home_screen.dart';
 import 'Screens/settings_screen.dart';
 
-void main() => runApp(const MyApp());
+void main() async {
+  
+  WidgetsFlutterBinding.ensureInitialized();
+  
+  await Preferences.init();//! Para guardar en cache sin base de datos https://pub.dev/packages/shared_preferences
+
+  runApp(const MyApp());
+
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -18,6 +27,7 @@ class MyApp extends StatelessWidget {
         HomeScreen.routerName: ( _ ) => const HomeScreen(),
         SettingsScreen.routerName: ( _ ) => const SettingsScreen(),
       },
+      theme: Preferences.isDarkMode ? ThemeData.dark(): ThemeData.light(),
     );
   }
 }
